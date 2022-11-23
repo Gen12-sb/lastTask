@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QHeaderView, QTableWidget, QTableWidgetItem
 from PyQt5 import uic
 import sqlite3
 from release.class1 import Ui_MainWindow
-from release.class1 import Ui_NewWindow
+from release.class2 import Ui_NewWindow
 
 
 class cofee_table(Ui_MainWindow, QMainWindow):
