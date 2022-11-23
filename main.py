@@ -3,15 +3,17 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QHeaderView, QTableWidget, QTableWidgetItem
 from PyQt5 import uic
 import sqlite3
+from class1 import Ui_MainWindow
+from class2 import Ui_NewWindow
 
 
-class cofee_table(QMainWindow):
+class cofee_table(Ui_MainWindow, QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
+        self.setupUi(self)
         self.setWindowTitle('Капучино')
         self.pushButton.clicked.connect(self.new)
-        self.conor = sqlite3.connect('coffee.sqlite')
+        self.conor = sqlite3.connect('data/coffee.sqlite')
         self.cur = self.conor.cursor()
         self.result = self.cur.execute('''SELECT 
                 c.sort, g.d_or_d, c.roast, c.teasty, c.price, c.vol
@@ -33,12 +35,12 @@ class cofee_table(QMainWindow):
 
 
 
-class New(QMainWindow):
+class New(Ui_NewWindow, QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('addEditCoffeeForm.ui', self)
+        self.setupUi(self)
         self.setWindowTitle('Новый')
-        self.conor = sqlite3.connect('coffee.sqlite')
+        self.conor = sqlite3.connect('data/coffee.sqlite')
         self.cur = self.conor.cursor()
         self.pushButton.clicked.connect(self.make)
 
