@@ -17,8 +17,7 @@ class cofee_table(QMainWindow):
                 c.sort, g.d_or_d, c.roast, c.teasty, c.price, c.vol
             FROM 
                 coffee c,
-                g_g g
-            WHERE c.g_or_g = g.id''').fetchall()
+                g_g g WHERE c.g_or_g = g.id''').fetchall()
         header = self.tableWidget.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.ResizeToContents)
         header.setSectionResizeMode(0, QHeaderView.Stretch)
